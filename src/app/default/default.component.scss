@@ -1,0 +1,14 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.wrapper {
+  background-color: rgb(245, 245, 245);
+  height: calc(100vh - 56px);
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

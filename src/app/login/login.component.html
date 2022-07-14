@@ -1,0 +1,100 @@
+<div class="wrapper">
+  <!-- rgb(237, 237, 237); -->
+
+  <div class="card">
+    <mat-card>
+      <div>
+        <!-- <h1 class="">Login</h1> -->
+        <div class="card-body">
+          <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h1>Login</h1>
+            <p class="text-muted" style="text-align: center">
+              Sign In to your account
+            </p>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                matInput
+                formControlName="email"
+                [errorStateMatcher]="matcher"
+                placeholder="pat@example.com"
+              />
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error
+                *ngIf="
+                  form.get('email')?.hasError('email') &&
+                  !form.get('email')?.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="form.get('email')?.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <div style="display: block"></div>
+
+            <mat-form-field class="example-full-width" appearance="standard">
+              <mat-label>Enter your password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+                type="button"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error *ngIf="form.get('password')?.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  form.get('password')?.hasError('minlength') &&
+                  !form.get('password')?.hasError('required')
+                "
+              >
+                Minimum length of password is 3
+              </mat-error>
+            </mat-form-field>
+
+            <!-- <button
+              mat-raised-button
+              color="primary"
+              [disabled]="form.invalid"
+            >
+              Submit
+            </button> -->
+            <div style="display: block"></div>
+
+            <!-- <mat-spinner-button [options]="spinnerButtonOptions">
+            </mat-spinner-button> -->
+
+            <div class="row">
+              <div class="col-6">
+                <button
+                  mat-raised-button
+                  type="submit"
+                  class="btn btn-primary px-4"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
