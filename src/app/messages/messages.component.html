@@ -8,10 +8,12 @@
         <h3>
           👇 Scroll 👇 down to check out the messages that you have received
         </h3>
-        <div class="message-box">
+        <div class="message-box" *ngFor="let message of messages">
           <p class="message-box__header">Message:</p>
-          <p class="message-box__content">I love you</p>
-          <p class="message-box__content">- Anonymous [13-07-2022 14:27 GMT]</p>
+          <p class="message-box__content">{{ message.message }}</p>
+          <p class="message-box__content">
+            - Anonymous {{ message.created_at }}
+          </p>
           <!-- <button>Share my response</button> -->
           <button mat-raised-button>Share my response</button>
         </div>
@@ -22,17 +24,17 @@
           <p class="message-box__content">
             - Come and give me money [13-07-2022 14:27 GMT]
           </p>
-          <!-- <button>Share my response</button> -->
+
           <button mat-raised-button>Share my response</button>
         </div>
 
-        <div class="message-box">
+        <!-- <div class="message-box">
           <p class="message-box__header">Message:</p>
           <p class="message-box__content">how old are you</p>
           <p class="message-box__content">- Anonymous [13-07-2022 14:27 GMT]</p>
-          <!-- <button>Share my response</button> -->
+
           <button mat-raised-button>Share my response</button>
-        </div>
+        </div> -->
       </div>
 
       <button mat-raised-button>Go to Profile</button>
