@@ -27,6 +27,18 @@ const routes: Routes = [
         loadChildren: () =>
           import('./profile/profile.module').then((m) => m.ProfileModule),
       },
+      {
+        path: 'message',
+        loadChildren: () =>
+          import('./messages/messages.module').then((m) => m.MessagesModule),
+      },
+      {
+        path: 'create-message',
+        loadChildren: () =>
+          import('./create-message/create-message.module').then(
+            (m) => m.CreateMessageModule
+          ),
+      },
     ],
   },
 ];

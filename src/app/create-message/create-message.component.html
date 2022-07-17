@@ -1,0 +1,26 @@
+<!-- <div class="wrapper">
+  <h1>Say Something..</h1>
+  <h3>Say Something About Me *</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+</div> -->
+
+<div class="wrapper">
+  <!-- rgb(237, 237, 237); -->
+
+  <div class="card">
+    <mat-card>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="">Say Something..</h1>
+        <h3>Say Something About Me *</h3>
+        <mat-form-field appearance="standard" style="width: 300px">
+          <mat-label>Leave a message for walexy249 here...</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+        <button type="submit" mat-raised-button>Send message</button>
+      </form>
+    </mat-card>
+  </div>
+</div>
