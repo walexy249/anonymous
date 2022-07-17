@@ -7,9 +7,9 @@
         <!-- <h1 class="">Login</h1> -->
         <div class="card-body">
           <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <h1>Login</h1>
+            <h1>Signup</h1>
             <p class="text-muted" style="text-align: center">
-              Sign In to your account
+              Register your account
             </p>
 
             <mat-form-field class="example-full-width">
@@ -19,7 +19,7 @@
                 matInput
                 formControlName="email"
                 [errorStateMatcher]="matcher"
-                placeholder="lanre@example.com"
+                placeholder="pat@example.com"
               />
               <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
               <mat-error
