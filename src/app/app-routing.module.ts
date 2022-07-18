@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultComponent } from './default/default.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -29,16 +30,18 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        canLoad: [AuthGuard],
         loadChildren: () =>
           import('./profile/profile.module').then((m) => m.ProfileModule),
       },
       {
-        path: 'message',
+        path: 'my-message',
+        canLoad: [AuthGuard],
         loadChildren: () =>
           import('./messages/messages.module').then((m) => m.MessagesModule),
       },
       {
-        path: 'create-message',
+        path: ':id',
         loadChildren: () =>
           import('./create-message/create-message.module').then(
             (m) => m.CreateMessageModule

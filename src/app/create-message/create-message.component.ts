@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AnonymousService } from '../Service/anonymous.service';
 
 @Component({
@@ -9,21 +11,35 @@ import { AnonymousService } from '../Service/anonymous.service';
 })
 export class CreateMessageComponent implements OnInit {
   form: FormGroup;
+  private routeSub!: Subscription;
+  username!: string;
 
-  constructor(private anonymousService: AnonymousService) {
+  constructor(
+    private anonymousService: AnonymousService,
+    private route: ActivatedRoute
+  ) {
     this.form = new FormGroup({
       message: new FormControl(null, [Validators.required]),
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.routeSub = this.route.params.subscribe((params) => {
+      console.log(params); //log the entire params object
+      console.log(params['id']); //log the value of id
+      this.username = params['id'];
+    });
+  }
 
   onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
     console.log(this.form.value);
     let form = {
       message: this.form.value.message,
       created_at: new Date(),
-      username: 'walexy249',
+      username: this.username,
     };
 
     this.anonymousService.sendAnonymous(form).subscribe(
@@ -35,5 +51,9 @@ export class CreateMessageComponent implements OnInit {
         console.log('error', error);
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.routeSub.unsubscribe();
   }
 }

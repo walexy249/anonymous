@@ -5,14 +5,14 @@
     <mat-card>
       <div>
         <h1 class="">Welcome to Walexy249</h1>
-        <h4>https://gdpd.xyz/walexy249</h4>
+        <h4>{{ url }}/{{ username }}</h4>
         <p class="about">
           Share your profile link ❤️ to get responses from your friend. Go to
           "View Messages" to check out the responses. 👌
         </p>
       </div>
 
-      <button mat-raised-button>View Message</button>
+      <button mat-raised-button routerLink="/my-message">View Message</button>
       <button mat-raised-button>Share my profile</button>
     </mat-card>
   </div>

@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { AuthenticationService } from '../Service/authentication.service';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -38,9 +39,26 @@ export class SignupComponent implements OnInit {
   });
   matcher = new MyErrorStateMatcher();
 
-  constructor() {}
+  constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {}
+  onSubmit() {
+    if (this.form.invalid) {
+      console.log('form is invalid');
+      return;
+    }
+    console.log(this.form.value);
+    let email = `${this.form.value.email}@example.com`;
+    let password = this.form.value.password;
+
+    this.authService.signup(email, password).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

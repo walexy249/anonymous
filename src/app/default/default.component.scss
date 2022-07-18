@@ -3,7 +3,7 @@
 }
 .wrapper {
   background-color: rgb(245, 245, 245);
-  height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px);
 }
 @media screen and (max-width: 768px) {
   .wrapper {

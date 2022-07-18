@@ -15,10 +15,12 @@ export class AnonymousService {
     );
   }
 
-  getMessage() {
+  getMessage(username: string) {
+    // console.log(username);
+
     return this.http
       .get<any>(
-        'https://anonymous-f4d10-default-rtdb.firebaseio.com/messages.json'
+        `https://anonymous-f4d10-default-rtdb.firebaseio.com/messages.json?orderBy="username"&equalTo="${username}"`
       )
       .pipe(
         map((res) => {

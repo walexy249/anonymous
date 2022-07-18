@@ -3,8 +3,10 @@
     >Anonymous</a
   >
   <span class="example-spacer"></span>
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button routerLink="/signup">Signup</button>
+  <button mat-button *ngIf="user" routerLink="/profile">Profile</button>
+  <button mat-button *ngIf="!user" routerLink="/login">Login</button>
+  <button mat-button *ngIf="user" (click)="onLogout()">Logout</button>
+  <button mat-button *ngIf="!user" routerLink="/signup">Signup</button>
 </mat-toolbar>
 
 <div class="wrapper">

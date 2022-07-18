@@ -16,9 +16,13 @@
         <h1 class="">Say Something..</h1>
         <h3>Say Something About Me *</h3>
         <mat-form-field appearance="standard" style="width: 300px">
-          <mat-label>Leave a message for walexy249 here...</mat-label>
+          <mat-label>Leave a message for {{ username }} here...</mat-label>
           <textarea formControlName="message" matInput></textarea>
+          <mat-error *ngIf="form.get('message')?.hasError('required')">
+            Message is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
+        <br />
         <button type="submit" mat-raised-button>Send message</button>
       </form>
     </mat-card>

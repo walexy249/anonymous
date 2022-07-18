@@ -27,18 +27,6 @@ h3 {
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    padding: 1rem;
-    // flex-direction: column;
-    // justify-content: center;
-    height: 80vh;
-  }
-  mat-card {
-    padding: 1rem;
-  }
-}
-
 .wrapper {
   // height: 80vh;
 }
@@ -55,12 +43,20 @@ h3 {
   &__content {
     font-size: 0.8rem;
   }
+}
 
-  // button {
-  //   display: block;
-  //   padding: 1rem;
-  //   background-color: blue;
-  //   color: white;
-  //   border-radius: 20px;
-  // }
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 1rem;
+    // flex-direction: column;
+    // justify-content: center;
+    // height: 80vh;
+  }
+  mat-card {
+    padding: 1rem;
+  }
+
+  .message-box {
+    width: 18rem;
+  }
 }
