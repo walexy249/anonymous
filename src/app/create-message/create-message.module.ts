@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { MatProgressButtonsModule } from 'mat-progress-buttons';
+
 import { CreateMessageRoutingModule } from './create-message-routing.module';
 import { CreateMessageComponent } from './create-message.component';
 import { MatCardModule } from '@angular/material/card';
@@ -20,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatProgressButtonsModule,
   ],
 })
 export class CreateMessageModule {}

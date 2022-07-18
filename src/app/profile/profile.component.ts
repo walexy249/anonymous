@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
     this.authService.user.subscribe((user) => {
       // console.log('user', user);
       this.user = user;
-      this.username = this.user.email.split('@')[0];
+      this.username = this.user?.email.split('@')[0];
     });
   }
 }

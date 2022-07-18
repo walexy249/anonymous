@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //angular material
 //angular materials modules
@@ -13,9 +14,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 
+import { MatProgressButtonsModule } from 'mat-progress-buttons';
+
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -32,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressButtonsModule,
   ],
 })
 export class LoginModule {}

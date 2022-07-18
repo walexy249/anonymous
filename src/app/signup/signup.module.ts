@@ -13,6 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 
+import { MatProgressButtonsModule } from 'mat-progress-buttons';
+
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
 
@@ -31,6 +33,7 @@ import { SignupComponent } from './signup.component';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatProgressButtonsModule,
   ],
 })
 export class SignupModule {}

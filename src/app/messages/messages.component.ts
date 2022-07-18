@@ -22,12 +22,12 @@ export class MessagesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getMessage();
+    // this.getMessage();
     this.authService.user.subscribe((user: User) => {
       this.username = user.email.split('@')[0];
       // console.log(this.username);
+      this.getMessage();
     });
-    this.getMessage();
   }
 
   getMessage() {

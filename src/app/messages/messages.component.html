@@ -5,6 +5,7 @@
     <mat-card>
       <div>
         <h1 class="">My Answers</h1>
+        <!-- <button class="btn">message</button> -->
         <h3>
           👇 Scroll 👇 down to check out the messages that you have received
         </h3>
@@ -15,7 +16,13 @@
             - Anonymous {{ message.created_at | date: "medium" }}
           </p>
           <!-- <button>Share my response</button> -->
-          <button mat-raised-button>Share my response</button>
+          <a
+            href="whatsapp://send?text={{ message.message }}"
+            data-action="share/whatsapp/share"
+            target="_blank"
+            mat-raised-button
+            >Share to whatsapp</a
+          >
         </div>
 
         <div class="message-box">

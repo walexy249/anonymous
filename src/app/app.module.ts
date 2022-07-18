@@ -11,11 +11,16 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatProgressButtonsModule } from 'mat-progress-buttons';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultComponent } from './default/default.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent, DefaultComponent],
@@ -31,6 +36,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatCardModule,
     MatToolbarModule,
+    MatProgressButtonsModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      progressBar: false,
+      enableHtml: true,
+    }),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
