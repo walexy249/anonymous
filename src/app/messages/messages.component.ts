@@ -16,6 +16,7 @@ export class MessagesComponent implements OnInit {
     created_at: Date;
   }[] = [];
   username!: string;
+  loading = false;
   constructor(
     private anonymousService: AnonymousService,
     private authService: AuthenticationService
@@ -31,13 +32,16 @@ export class MessagesComponent implements OnInit {
   }
 
   getMessage() {
+    this.loading = true;
     this.anonymousService.getMessage(this.username).subscribe(
       (data) => {
+        this.loading = false;
         console.log(data);
         this.messages = data.reverse();
       },
       (error) => {
         console.log(error);
+        this.loading = false;
       }
     );
   }

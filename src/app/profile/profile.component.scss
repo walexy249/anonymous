@@ -33,6 +33,19 @@ h3 {
 .about {
   text-align: center;
 }
+.profile-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  h4 {
+    font-size: 1rem;
+    // padding: 1rem;
+    align-self: center;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .card {

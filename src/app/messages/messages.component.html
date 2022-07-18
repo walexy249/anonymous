@@ -9,40 +9,42 @@
         <h3>
           👇 Scroll 👇 down to check out the messages that you have received
         </h3>
-        <div class="message-box" *ngFor="let message of messages">
-          <p class="message-box__header">Message:</p>
-          <p class="message-box__content">{{ message.message }}</p>
-          <p class="message-box__content">
-            - Anonymous {{ message.created_at | date: "medium" }}
-          </p>
-          <!-- <button>Share my response</button> -->
-          <a
-            href="whatsapp://send?text={{ message.message }}"
-            data-action="share/whatsapp/share"
-            target="_blank"
-            mat-raised-button
-            >Share to whatsapp</a
-          >
+        <div *ngIf="loading">Loading messages...</div>
+        <div *ngIf="!loading && messages.length > 0">
+          <div class="message-box" *ngFor="let message of messages">
+            <p class="message-box__header">Message:</p>
+            <p class="message-box__content">{{ message.message }}</p>
+            <p class="message-box__content">
+              - Anonymous {{ message.created_at | date: "medium" }}
+            </p>
+            <!-- <button>Share my response</button> -->
+            <a
+              href="whatsapp://send?text={{ message.message }}"
+              data-action="share/whatsapp/share"
+              target="_blank"
+              mat-raised-button
+              >Share to whatsapp</a
+            >
+          </div>
+
+          <div class="message-box">
+            <!-- <p class="message-box__header">Message:</p>
+            <p class="message-box__content">I love you</p> -->
+            <p class="message-box__content" style="text-align: center">
+              You Have Reached The End! 🏁 🙋 Ask your friends to send more
+              messages
+            </p>
+
+            <!-- <button mat-raised-button>Share my response</button> -->
+          </div>
         </div>
 
-        <div class="message-box">
-          <!-- <p class="message-box__header">Message:</p>
-          <p class="message-box__content">I love you</p> -->
+        <div class="message-box" *ngIf="messages.length === 0 && !loading">
           <p class="message-box__content" style="text-align: center">
-            You Have Reached The End! 🏁 🙋 Ask your friends to send more
-            messages
+            You do not have any message yet 🏁 🙋 Ask your friends to send
+            messages to your profile
           </p>
-
-          <!-- <button mat-raised-button>Share my response</button> -->
         </div>
-
-        <!-- <div class="message-box">
-          <p class="message-box__header">Message:</p>
-          <p class="message-box__content">how old are you</p>
-          <p class="message-box__content">- Anonymous [13-07-2022 14:27 GMT]</p>
-
-          <button mat-raised-button>Share my response</button>
-        </div> -->
       </div>
 
       <!-- <button mat-raised-button>Go to Profile</button> -->

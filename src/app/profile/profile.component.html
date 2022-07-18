@@ -5,7 +5,14 @@
     <mat-card>
       <div>
         <h1 class="">Welcome {{ username }}</h1>
-        <h4>{{ url }}/{{ username }}</h4>
+        <div class="profile-link">
+          <h4>{{ profileLink }}</h4>
+
+          <button mat-flat-button [cdkCopyToClipboard]="profileLink">
+            Copy to clipboard
+          </button>
+        </div>
+
         <p class="about">
           Share your profile link ❤️ to get responses from your friend. Go to
           "View Messages" to check out the responses. 👌
