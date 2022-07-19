@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   username!: string;
   url = window.location.origin;
   profileLink!: string;
+  profileLinkWhatsapp!: string;
   constructor(private authService: AuthenticationService) {}
 
   ngOnInit(): void {
@@ -23,7 +24,20 @@ export class ProfileComponent implements OnInit {
       // console.log('user', user);
       this.user = user;
       this.username = this.user?.email.split('@')[0];
-      this.profileLink = `${this.url}/anonymous/${this.username}`;
+      this.profileLink = `${this.url}/${this.username}`;
+      this.profileLinkWhatsapp =
+        `Write a secret anonymous message for me.. 😉 I won't know who wrote it.. 😂❤ 👉` +
+        this.profileLink;
     });
+  }
+
+  onClick() {
+    window.open(
+      'whatsapp://send?text=' + this.profileLinkWhatsapp,
+
+      // This is what makes it
+      // open in a new window.
+      '_blank'
+    );
   }
 }

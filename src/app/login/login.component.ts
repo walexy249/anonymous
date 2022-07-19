@@ -53,7 +53,15 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.authService.user.subscribe((user) => {
+      // console.log('USER', user);
+      // if (user) {
+      //   let username = user?.email.split('@')[0];
+      //   this.router.navigate(['/', username]);
+      // }
+    });
+  }
 
   ngOnInit(): void {}
 

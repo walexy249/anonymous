@@ -11,6 +11,16 @@
           <button mat-flat-button [cdkCopyToClipboard]="profileLink">
             Copy to clipboard
           </button>
+
+          <a
+            href=""
+            data-action="share/whatsapp/share"
+            target="_blank"
+            mat-raised-button
+            (click)="onClick()"
+            class="mobileShow"
+            >Share my profile to whatsapp</a
+          >
         </div>
 
         <p class="about">
@@ -19,8 +29,9 @@
         </p>
       </div>
 
-      <button mat-raised-button routerLink="/my-message">View Message</button>
-      <button mat-raised-button>Share my profile</button>
+      <div style="text-align: center">
+        <button mat-raised-button routerLink="/my-message">View Message</button>
+      </div>
     </mat-card>
   </div>
 </div>

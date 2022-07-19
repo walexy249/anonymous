@@ -14,7 +14,7 @@
     <mat-card>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <h1 class="">Say Something..</h1>
-        <h3>Say Something About Me *</h3>
+        <h3>Say Something About {{ username }} *</h3>
         <mat-form-field appearance="standard" style="width: 300px">
           <mat-label>Leave a message for {{ username }} here...</mat-label>
           <textarea formControlName="message" matInput></textarea>

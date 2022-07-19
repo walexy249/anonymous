@@ -57,6 +57,12 @@ h3 {
   }
 }
 
+@media screen and (min-width: 500px) {
+  .mobileShow {
+    display: none;
+  }
+}
+
 // .wrapper {
 //   height: 80vh;
 // }
